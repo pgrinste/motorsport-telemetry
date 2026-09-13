@@ -1,0 +1,3 @@
+# Full stack incl. CUDA torch for the Monte Carlo ideal-line ensemble
+-r requirements.txt
+torch>=2.3

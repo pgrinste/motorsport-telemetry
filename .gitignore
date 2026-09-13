@@ -1,0 +1,20 @@
+# Python
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+.venv_tmp/
+
+# Build intermediates (bundle + czml are committed for static hosting)
+build/*
+!build/bundle.json
+!build/czml/
+data/telemetry_*.csv
+
+# Jupyter
+.ipynb_checkpoints/
+
+# OS
+Thumbs.db
+.DS_Store
+nul
