@@ -36,7 +36,18 @@ import json, os, sys
 import numpy as np
 import matplotlib.pyplot as plt
 
-ROOT = os.path.abspath(os.path.join(os.getcwd(), "..")) if os.path.exists("../src/physics.py") else os.getcwd()
+def _find_root():
+    here = os.getcwd()
+    cands = [here, os.path.dirname(here)]
+    if os.path.isdir("/kaggle/input"):
+        for d in sorted(os.listdir("/kaggle/input")):
+            cands.append(os.path.join("/kaggle/input", d))
+    for c in cands:
+        if os.path.exists(os.path.join(c, "data", "track_suzuka.json")):
+            return c
+    return here
+
+ROOT = _find_root()
 sys.path.insert(0, os.path.join(ROOT, "src"))
 from physics import (load_track, to_enu_m, resample_closed, signed_curvature,
                      ideal_speed_profile, MU, A_BRAKE, A_ACC, K_DRAG, G)
