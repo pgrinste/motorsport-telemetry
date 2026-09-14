@@ -8,7 +8,17 @@ driver telemetry — all rendered as a live **CesiumJS** experience with a delta
 extruded above the track, timeline scrubbing, camera tracking, layer toggles, and a WebSocket
 LIVE mode.
 
+## At a glance
+
+| Driver delta vs ideal line, lap by lap | Ideal-line speed profile with Monte Carlo p10–p90 band (4096 samples) |
+|---|---|
+| ![delta traces](outputs/figures/nb_05_deltas.png) | ![MC band](outputs/figures/mc_band.png) |
+
+The full experience — 3D track, extruded delta ribbon, timeline scrubbing, LIVE streaming — is in the interactive CesiumJS app (Live demo below).
+
 ## Live demo
+
+**Static demo:** https://pgrinste.github.io/motorsport-telemetry/ — the `site/` bundle served from the repo's `gh-pages` branch (LIVE mode degrades gracefully without a WS server).
 
 ```bash
 # Option A — local (Python 3.10+, venv with requirements.txt)
@@ -21,6 +31,8 @@ docker compose up -d                            # → http://localhost:8321
 # Option C — fully static (no backend): serve the site/ folder from any host
 # (GitHub Pages, S3, nginx). LIVE mode degrades gracefully when no WS server is present.
 ```
+
+All local options bind to **127.0.0.1** by default (Docker's port map likewise stays on localhost), so nothing is exposed on your LAN unless you explicitly pass `--host 0.0.0.0`.
 
 ## Pipeline
 
