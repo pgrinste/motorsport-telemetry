@@ -18,3 +18,7 @@ data/telemetry_*.csv
 Thumbs.db
 .DS_Store
 nul
+
+# local state / review notes (not for public)
+PROJECT_LOG.md
+Updates*.txt
