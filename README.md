@@ -1,6 +1,6 @@
 # SUZUKA // Telemetry & Predictive Line
 
-**Dynamic Motorsport Telemetry & Predictive Line Visualizer** — portfolio project 1/2 (HAAS).
+**Dynamic Motorsport Telemetry & Predictive Line Visualizer**
 
 A physics-based ideal racing line computed on real Suzuka Circuit geometry, wrapped in a Monte
 Carlo uncertainty ensemble (4096 samples on an RTX 4090), and compared against synthetic 100 Hz

@@ -19,7 +19,7 @@ def code(src):
 
 md("""# Suzuka — Physics Ideal Line & Telemetry Delta Analysis
 
-**HAAS portfolio project 1/2 · Dynamic Motorsport Telemetry & Predictive Line Visualizer**
+**Dynamic Motorsport Telemetry & Predictive Line Visualizer**
 
 Pipeline: OSM centerline (way 775428456) + real SRTM elevation → signed curvature →
 two-pass friction-circle solver with quadratic aero drag → G-force / ERS / tire-thermal
