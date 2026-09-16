@@ -26,9 +26,13 @@ uvicorn app:app --host 127.0.0.1 --port 8321   # from server/
 # → http://localhost:8321
 
 # Option B — Docker (lightweight CPU container; GPU work is precomputed)
+# NOTE: requires `docker` on PATH (Docker Desktop running); otherwise use A or D.
 docker compose up -d                            # → http://localhost:8321
 
-# Option C — fully static (no backend): serve the site/ folder from any host
+# Option C — one-click public link (Windows): double-click "Start Telemetry Hosting.bat"
+# Starts the local server + an ngrok tunnel; your https://*.ngrok-free.dev URL appears in that window.
+
+# Option D — fully static (no backend): serve the site/ folder from any host
 # (GitHub Pages, S3, nginx). LIVE mode degrades gracefully when no WS server is present.
 ```
 

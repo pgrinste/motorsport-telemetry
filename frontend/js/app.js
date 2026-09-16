@@ -181,7 +181,7 @@ async function init() {
   // Track centerline (real elevation).
   const cartos = BUNDLE.track.lat.map((la, i) =>
     Cesium.Cartographic.fromDegrees(BUNDLE.track.lon[i], la, BUNDLE.track.elev[i] + 2));
-  viewer.entities.add({ id: "centerline", polyline: { positions: Cesium.Cartesian3.fromCartographics(cartos), width: 4, material: Cesium.Color.GRAY.withAlpha(0.8) } });
+  viewer.entities.add({ id: "centerline", polyline: { positions: cartos.map((c) => Cesium.Cartesian3.fromCartographic(c)), width: 4, material: Cesium.Color.GRAY.withAlpha(0.8) } });
 
   // Corner labels.
   cornerLabels = new Cesium.LabelCollection();
