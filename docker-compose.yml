@@ -1,7 +1,0 @@
-services:
-  suzuka-telemetry:
-    build: .
-    image: suzuka-telemetry:latest
-    ports:
-      - "8321:8321"
-    restart: unless-stopped
