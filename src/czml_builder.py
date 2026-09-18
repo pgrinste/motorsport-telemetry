@@ -93,7 +93,7 @@ def main():
     doc = [
         {"id": "document", "version": "1.0",
          "clock": {"interval": f"{EPOCH}/{_iso(t_end)}",
-                   "currentTime": {"date": EPOCH}, "multiplier": 1,
+                   "currentTime": EPOCH, "multiplier": 1,
                    "range": "LOOP_STOP"}},
         driver, ghost,
     ]

@@ -65,10 +65,10 @@ function buildDeltaRibbon(lapKey) {
     const a = i * 2, b = a + 1, c = ((i + 1) % n) * 2, d = c + 1;
     idx.push(a, c, b, b, c, d);   // both windings -> visible from any angle
   }
-  const geometry = Cesium.Geometry.create({
+  const geometry = new Cesium.Geometry({
     attributes: {
-      position: new Cesium.GeometryAttribute({ componentType: Cesium.ComponentType.DOUBLE, componentsPerAttribute: 3, values: pos }),
-      color: new Cesium.GeometryAttribute({ componentType: Cesium.ComponentType.UNSIGNED_BYTE, componentsPerAttribute: 4, values: col })
+      position: new Cesium.GeometryAttribute({ componentDatatype: Cesium.ComponentDatatype.DOUBLE, componentsPerAttribute: 3, values: pos }),
+      color: new Cesium.GeometryAttribute({ componentDatatype: Cesium.ComponentDatatype.UNSIGNED_BYTE, componentsPerAttribute: 4, values: col })
     },
     indices: idx,
     boundingSphere: Cesium.BoundingSphere.fromPoints(pts)
@@ -181,7 +181,7 @@ async function init() {
   // Track centerline (real elevation).
   const cartos = BUNDLE.track.lat.map((la, i) =>
     Cesium.Cartographic.fromDegrees(BUNDLE.track.lon[i], la, BUNDLE.track.elev[i] + 2));
-  viewer.entities.add({ id: "centerline", polyline: { positions: cartos.map((c) => Cesium.Cartesian3.fromCartographic(c)), width: 4, material: Cesium.Color.GRAY.withAlpha(0.8) } });
+  viewer.entities.add({ id: "centerline", polyline: { positions: cartos.map((c) => Cesium.Cartographic.toCartesian(c)), width: 4, material: Cesium.Color.GRAY.withAlpha(0.8) } });
 
   // Corner labels.
   cornerLabels = new Cesium.LabelCollection();
